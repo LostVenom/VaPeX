@@ -69,6 +69,9 @@ def get_readable_time(seconds: int) -> str:
     ping_time += ":".join(time_list)
 
     return ping_time
+PM_START_TEX = """
+Hii {}
+"""
 
 
 PM_START_TEXT = """
@@ -76,7 +79,7 @@ PM_START_TEXT = """
 
 *๏ Ｍʏsᴇʟғ* {} !
 
-*⧉ 𝖠ɴ 𝖠ᴅᴠᴀɴᴄᴇ 🔍 & 𝖥ᴀꜱᴛ⚡️𝖦ʀᴏᴜᴘ 🦾𝖬ᴀɴᴀɢᴇᴍᴇɴᴛ👨‍💻 𝖡ᴏᴛ 𝖶ɪᴛʜ 𝖫ᴏᴛs 𝖮ғ 𝖴sᴇғᴜʟ 𝖠ɴᴅ 𝖢ᴏᴏʟ 𝖥ᴇᴀᴛᴜʀᴇs.*
+*⧉ 𝖠ɴ 𝖠ᴅᴠᴀɴᴄᴇ 🔍 & 𝖥ᴀꜱᴛ⚡️𝖦ʀᴏᴜᴘ 🦾𝖬ᴀɴᴀɢᴇᴍᴇɴᴛ👨‍💻 𝖡ᴏᴛ 𝖶ɪᴛʜ 𝖫ᴏᴛs 𝖮ғ 𝖴sᴇғᴜʟ 𝖠ɴᴅ 𝖢ᴏᴏʟ 𝖥ᴇᴀᴛᴜʀᴇs.*
 
 *⧉ I'ᴍ🥋 𝖧ᴇʀᴇ 𝖳ᴏ 𝖧ᴇʟᴘ 𝖸ᴏᴜ 🦾𝖬ᴀɴᴀɢᴇ 𝖸ᴏᴜʀ 💡𝖦ʀᴏᴜᴘs!*
 
@@ -206,9 +209,26 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_sticker(
-                "CAACAgUAAxkBAAELBodlhzGoN7bX5tIKzquD93TL_iAACmAUAAgk_YFRalNTHxH9obDME"
+            x=update.effective_message.reply_sticker(
+                "CAACAgUAAxkBAAID6mWdkhJeUGuBf2z6RTYCUYaG2Gi0AALYCwACSwnZVguLAAEiT7OTEjQE")
+            x.delete()
+            usr = update.effective_user
+            lol = update.effective_message.reply_text(
+                PM_START_TEX.format(usr.first_name), parse_mode=ParseMode.MARKDOWN
             )
+            time.sleep(0.4)
+            lol.edit_text("⚡")
+            time.sleep(0.4)
+            lol.edit_text("👻")
+            time.sleep(0.3)
+            lol.edit_text("Starting.")
+            time.sleep(0.3)
+            lol.edit_text("Starting..")
+            time.sleep(0.3)
+            lol.edit_text("Starting...")
+            time.sleep(0.5)
+            lol.delete()
+            
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(buttons),
@@ -296,7 +316,7 @@ def help_button(update, context):
         if mod_match:
             module = mod_match.group(1)
             text = (
-                "» *ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅs ꜰᴏʀ* *{}* :\n".format(
+                "⧉ *{}* :\n".format(
                     HELPABLE[module].__mod_name__
                 )
                 + HELPABLE[module].__help__
@@ -360,7 +380,7 @@ def Titan_about_callback(update: Update, context: CallbackContext):
             
             "\n\n➳ We also thank🙏🏻 all the 𝗚𝗿𝗼𝘂𝗽𝘀 who rely on our Bot🤖 for Management Services, 🫠we hope you will always ❣️like it: we are constantly 💻working to improve it💡!"
             
-            f"\n\n✦ ᴛᴀᴘ ᴏɴ ʙᴜᴛᴛᴏɴ🎛 ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴀɴᴅ ʟᴇᴀʀɴ ᴍᴏʀᴇ ʙᴀsɪᴄs ᴀʙᴏᴜᴛ{BOT_NAME}.",
+            f"\n\n✦ ᴛᴀᴘ ᴏɴ ʙᴜᴛᴛᴏɴ🎛 ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴀɴᴅ ʟᴇᴀʀɴ ᴍᴏʀᴇ ʙᴀsɪᴄs ᴀʙᴏᴜᴛ{BOT_NAME}.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -400,7 +420,7 @@ def Titan_about_callback(update: Update, context: CallbackContext):
                         ),
                         InlineKeyboardButton(
                             text="ɢɪᴛʜᴜʙ",
-                            url="https://github.com/",
+                            url="https://github.com/Pirate303",
                         ),
                     ],
                     [
@@ -689,6 +709,17 @@ def migrate_chats(update: Update, context: CallbackContext):
 
 
 def main():
+    global x
+    x=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="🐼 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ᴄʜᴀᴛ 🐼",
+                            url=f"https://t.me/{BOT_USERNAME}?startgroup=true"
+                            )
+                       ]
+                ]
+                     )
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
             dispatcher.bot.send_photo(
@@ -698,11 +729,13 @@ def main():
 🎶 {BOT_NAME} ☆● ιѕ σиℓιиє ●☆.......❤️‍🔥👻💫
 
 ╔╦════••✠•❀•✠••═════╦╗
-ㅤ★ **ᴘʏᴛʜᴏɴ :** `{y()}`
+ㅤ★**ᴍᴀᴅᴇ ʙʏ [•⏤͟͞𓆩×͜ ❛🇹𝗜𝗧𝗔𝗡𓆪ꪾ](https://t.me/TitanNetwrk)**
+  ★ **ᴘʏᴛʜᴏɴ :** `{y()}`
 ㅤ★ **ʟɪʙʀᴀʀʏ :** `{telever}`
 ㅤ★ **ᴛᴇʟᴇᴛʜᴏɴ :** `{tlhver}`
 ㅤ★ **ᴩʏʀᴏɢʀᴀᴍ :** `{pyrover}`
-╚╩════••✠•❀•✠••═════╩╝""",
+╚╩════••✠•❀•✠••═════╩╝
+""",reply_markup=x,
                 parse_mode=ParseMode.MARKDOWN,
             )
         except Unauthorized:
@@ -744,7 +777,7 @@ def main():
 
     dispatcher.add_error_handler(error_callback)
 
-    LOGGER.info("King Started...")
+    LOGGER.info("Titan Started...")
     updater.start_polling(timeout=15, read_latency=4, drop_pending_updates=True)
 
     if len(argv) not in (1, 3, 4):

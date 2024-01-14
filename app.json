@@ -1,7 +1,7 @@
 {
       "name": "Titan",
       "description": "Telegram Powerful Group Management Bot.",
-      "logo": "https://te.legra.ph/file/72e135da30a1a349f2844.jpg",
+      "logo": "https://telegra.ph/file/c4c411b7968c06b606395.jpg",
       "keywords": [
          "telegram",
          "modular",
@@ -9,7 +9,7 @@
          "manager",
          "Titan"
       ],   
-   "repository": "https://github.com/PIRATE303/TitanXManager",
+   "repository": "https://github.com/PIRATE303/TitanXRobot",
    "stack": "heroku-22",
    "addons": [
       {

@@ -14,7 +14,7 @@ def can_restrict(func: Callable) -> Callable:
         check = await pbot.get_chat_member(message.chat.id, message.from_user.id)
         if check.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
             return await message.reply_text(
-                "» ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴘʟᴇᴀsᴇ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs."
+                "☞ You're not an Admin."
             )
 
         admin = (
@@ -24,7 +24,7 @@ def can_restrict(func: Callable) -> Callable:
             return await func(_, message)
         else:
             return await message.reply_text(
-                "`You don't have permissions to restrict users in this chat."
+                "You don't have permissions to restrict users in this chat."
             )
 
     return non_admin

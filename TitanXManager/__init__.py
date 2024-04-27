@@ -175,9 +175,3 @@ tg.CommandHandler = CustomCommandHandler
 tg.MessageHandler = CustomMessageHandler
 
 
-
-
-
-
-
-K

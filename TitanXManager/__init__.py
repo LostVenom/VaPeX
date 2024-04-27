@@ -186,8 +186,3 @@ L
 K
 
 K
-KK
-KK
-
-K
-KKKK

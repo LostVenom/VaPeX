@@ -181,4 +181,3 @@ tg.MessageHandler = CustomMessageHandler
 
 
 K
-K

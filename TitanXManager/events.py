@@ -9,7 +9,7 @@ from TitanXManager import MONGO_DB_URI, telethn
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
-db = client["MrPerfectXd"]
+db = client["LostVenom"]
 gbanned = db.gban
 
 

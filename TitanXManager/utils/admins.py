@@ -6,7 +6,6 @@ from pyrogram.types import Message
 from TitanXManager import DEV_USERS, pbot
 
 
-
 def can_restrict(func: Callable) -> Callable:
     async def non_admin(_, message: Message):
         if message.from_user.id in DEV_USERS:

@@ -174,4 +174,3 @@ def titanxmanager(**args):
             args["pattern"] = args["pattern"].replace("^.", unsafe_pattern, 1)
 
 
-
